@@ -1,0 +1,10 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Anuphan', sans-serif;
+}
+
+@font-face {
+  font-family: 'Anuphan';
+  src: url('./../fonts/Anuphan-VariableFont_wght.ttf');
+}
