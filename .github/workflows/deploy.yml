@@ -14,8 +14,7 @@ jobs:
           ln -s index.html 404.html
           git config --global user.email "action@example.com"
           git config --global user.name "action"
-          git init
-          git remote add origin https://novian-star:${{ secrets.GITHUB_TOKEN }}@github.com/novian-star/portfolio.git
+          git init -b main
           git add .
           git commit -m 'Deploy'
           git push -f origin main:gh-pages
