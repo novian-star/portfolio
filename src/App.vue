@@ -20,7 +20,7 @@ function handlePrint() {
     </section>
 
     <!-- Print button -->
-    <div class="fixed bottom-0 w-full p-4 print:hidden">
+    <div class="fixed bottom-0 w-auto p-4 print:hidden">
       <div class="flex justify-end max-w-4xl mx-auto">
         <button
           class="flex items-center p-2 gap-2 bg-emerald-500 rounded shadow text-sm"
