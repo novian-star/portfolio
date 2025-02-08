@@ -1,14 +1,21 @@
-name: Build Vue
+name: Build and Deploy Vue
 on: [push]
 jobs:
-  build_vue:
+  deploy:
     runs-on: ubuntu-latest
-    name: Build Vue
+    name: Deploy
     steps:
       - uses: actions/checkout@v2
-      - id: Build-Vue
-        uses: xRealNeon/VuePagesAction@1.0.1
-        with:
-          username: 'novian-star'
-          reponame: 'portfolio'
-          token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: oven-sh/setup-bun@v2
+      - run: bun install
+      - run: bun build
+      - run: |
+          cd dist
+          ln -s index.html 404.html
+          git config --global user.email "action@example.com"
+          git config --global user.name "action"
+          git init
+          git add .
+          git commit -m 'Deploy'
+          git push -f https://novian-star:${{ secrets.GITHUB_TOKEN }}@github.com/novian-star/portfolio.git main:gh-pages
+        shell: bash
